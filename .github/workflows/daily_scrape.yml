@@ -2,10 +2,13 @@ name: RRG Daily Flight Scraper
 
 on:
   schedule:
-    # Runs every day at 04:00 AM UTC
-    # - cron: '0 4 * * *'
+    # Runs every day at 19:00 UTC (23:00 Mauritius Time)
     - cron: '0 19 * * *'
-  workflow_dispatch: # Allows you to run it manually anytime from GitHub
+  workflow_dispatch: # Allows manual trigger
+
+# Grant permission to push files back to the repo
+permissions:
+  contents: write
 
 jobs:
   scrape:
