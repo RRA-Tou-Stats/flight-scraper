@@ -2,18 +2,16 @@ name: RRG Daily Flight Scraper
 
 on:
   schedule:
-    # Runs every day at 19:00 UTC (23:00 Mauritius Time)
     - cron: '0 19 * * *'
-  workflow_dispatch: # Allows manual trigger
+  workflow_dispatch:
 
-# Grant permission to push files back to the repo
 permissions:
   contents: write
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 15 # Automatically fails the job if it hangs for more than 15 minutes
+    timeout-minutes: 15
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
